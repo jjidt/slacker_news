@@ -1,0 +1,11 @@
+<h1><%= @link.name %></h1>
+<%= link_to "Add Comment", new_link_comment_path(@link) %>
+
+<% @link.comments.each do |comment| %>
+  <h4><%= comment.name %></h4>
+  <blockquote>
+    <p><%= comment.text %></p>
+    <p><%= link_to "Comment Comment", new_comment_path(comment) %></p>
+  </blockquote>
+  <% render('layouts/comments', :object => comment) %>
+<% end %>

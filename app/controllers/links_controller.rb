@@ -1,5 +1,5 @@
 
-def LinksController < ApplicationController
+class LinksController < ApplicationController
 
   def index
     @links = Link.all
@@ -50,7 +50,6 @@ def LinksController < ApplicationController
 private
 
   def links_params
-      params.require(:person).permit(:name, :age)
-      params.require(:link).permit(:url, :votes)
+      params.require(:link).permit(:url, :votes, :name)
   end
 end

@@ -4,15 +4,16 @@ class CommentsController < ApplicationController
   end
 
   def new
-    @comments = Comment.new
+    @comment = Comment.new
+    @link = Link.find(params[:link_id])
   end
 
   def create
-    @comments = Comment.new(comments_params)
-
-    if @comments.save
+    @link = Link.find(params[:comment][:link_id])
+    @comment = @link.comments.new(comments_params)
+    if @comment.save
       flash[:notice] = "Comment saved, thank you for contributing!"
-      redirect_to(comments_path)
+      redirect_to(link_path(Link.find(@comment.link_id)))
     else
       flash[:alert] = "Unable to save comment"
       render('new')
@@ -43,8 +44,6 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.destroy
     redirect_to(comments_path)
-  end
-
   end
 
 private

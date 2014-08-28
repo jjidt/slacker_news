@@ -1,0 +1,5 @@
+<% object.comments.each do |obj| %>
+  <h4><%= obj.name %></h4>
+  <blockquote><%= comment.text %></blockquote>
+  <% render('layout/comments', :object => obj) %>
+<% end %>
