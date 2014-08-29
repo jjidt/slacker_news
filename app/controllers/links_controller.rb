@@ -14,7 +14,7 @@ class LinksController < ApplicationController
 
     if @link.save
       flash[:notice] = "New Link Submitted"
-      redirect_to(link_path(@link))
+      redirect_to :root
     else
       flash[:alert] = "Unable to Submit Link"
       render('new')
