@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :users
+
   resources :comments do
     resources :comments, only: [:new]
   end
