@@ -8,7 +8,16 @@
 </head>
 <body>
 
-<%= yield %>
+<div class="jumbotron topper">
+  <div class="container">
+    <%= yield(:jumbo) %>
+  </div>
+</div>
+
+
+<div class="container" >
+  <%= yield %>
+</div>
 
 </body>
 </html>

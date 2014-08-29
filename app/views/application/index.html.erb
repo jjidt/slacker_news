@@ -1,3 +1,18 @@
 
-<h1>HELLO WORLD!</h1>
-<%=link_to "Add Link", new_link_path %>
+<% content_for :jumbo do %>
+  <h1>Slacker News</h1>
+  <%=link_to "Add Link", new_link_path, :class => "text-right" %>
+<% end %>
+
+<% @links.each do |link| %>
+  <p>
+    <%= link_to "", link, class: "glyphicon glyphicon-arrow-up green"%>
+    <%= link_to link.name, link.url %>&nbsp&nbsp
+    <%=link_to "x", link_path(link), :method => :delete, :confirm => "Are you sure ?", class: "glyphicon glyphicon-trash red"%>
+  </p>
+  <div class="container">
+    <p>
+      <%= link_to "discuss", link %>
+    </p>
+  </div>
+<% end %>

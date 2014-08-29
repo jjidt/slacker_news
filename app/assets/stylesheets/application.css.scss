@@ -13,3 +13,32 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.topper {
+  background-color: #2B272C;
+  color: white
+}
+
+.home {
+  color: white
+}
+
+.home:hover {
+  text-decoration: none;
+  color: gray
+}
+
+.red {
+  color: red
+}
+
+.green {
+  color: green
+}
+
+.small-link {
+  font-size: 12px
+}

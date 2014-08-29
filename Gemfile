@@ -3,10 +3,12 @@ source 'https://rubygems.org'
 gem 'rails'
 gem 'pg'
 gem 'sass-rails'
+gem 'bootstrap-sass', '~> 3.2.0'
 gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'boot'
 
 group :test do
   gem 'shoulda-matchers'
