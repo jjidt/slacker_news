@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :comments
+  resources :comments do
+    resources :comments, only: [:new]
+  end
 
   resources :links do
     resources :comments, only: [:new]

@@ -5,15 +5,28 @@ class CommentsController < ApplicationController
 
   def new
     @comment = Comment.new
-    @link = Link.find(params[:link_id])
+    if params[:link_id]
+      @link = Link.find(params[:link_id])
+      @parent_comment = Comment.new
+    elsif params[:comment_id]
+      @parent_comment = Comment.find(params[:comment_id])
+      @link = Link.new
+    end
   end
 
   def create
-    @link = Link.find(params[:comment][:link_id])
-    @comment = @link.comments.new(comments_params)
+    if params[:comment][:link_id] != ""
+      @link = Link.find(params[:comment][:link_id])
+      @comment = @link.comments.new(comments_params)
+      @link_id = @link.id
+    elsif params[:comment][:parent_comment_id] != ""
+      @parent_comment = Comment.find(params[:comment][:parent_comment_id])
+      @comment = @parent_comment.comments.new(comments_params)
+      @link_id = @parent_comment.link_id
+    end
     if @comment.save
       flash[:notice] = "Comment saved, thank you for contributing!"
-      redirect_to(link_path(Link.find(@comment.link_id)))
+      redirect_to(link_path(@link_id))
     else
       flash[:alert] = "Unable to save comment"
       render('new')

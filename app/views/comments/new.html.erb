@@ -4,6 +4,7 @@
 
 <%= form_for @comment do |f| %>
 <%= hidden_field_tag "comment[link_id]", @link.id %>
+<%= hidden_field_tag "comment[parent_comment_id]", @parent_comment.id %>
 <%= f.label :name %>
 <%= f.text_field :name %>
 <%= f.label :comment %>

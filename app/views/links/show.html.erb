@@ -5,7 +5,9 @@
   <h4><%= comment.name %></h4>
   <blockquote>
     <p><%= comment.text %></p>
-    <p><%= link_to "Comment Comment", new_comment_path(comment) %></p>
+    <p><%= link_to "Comment Comment", new_comment_comment_path(comment) %></p>
+    <blockquote>
+      <%= render('layouts/comments', :object => comment) %>
+    </blockquote>
   </blockquote>
-  <% render('layouts/comments', :object => comment) %>
 <% end %>
