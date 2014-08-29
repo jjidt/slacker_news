@@ -14,6 +14,7 @@ gem 'bcrypt-ruby', '3.1.2'
 group :test do
   gem 'shoulda-matchers'
   gem 'rspec-rails'
+  gem 'pry'
 end
 
 group :development do
