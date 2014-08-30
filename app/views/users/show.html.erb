@@ -1,0 +1,8 @@
+<%= render('layouts/jumbo') %>
+
+<h3><%= @user.name %></h3>
+<div class='container'>
+  <% @user.links.each do |link| %>
+    <h4><%= link.name %></h4>
+  <% end %>
+</div>

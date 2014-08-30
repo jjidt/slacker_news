@@ -2,6 +2,8 @@ require 'rails_helper'
 
 describe User do
 
+  it { should have_many :links }
+
   before do
     @user = User.new(name: "Testuser", password: "foobar", password_confirmation: "foobar")
   end
@@ -54,5 +56,5 @@ describe User do
     end
 
   end
-  
+
 end

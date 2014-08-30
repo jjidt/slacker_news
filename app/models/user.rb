@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :links
 
   validates_presence_of :name
   validates_presence_of :password_digest
