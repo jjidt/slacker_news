@@ -16,6 +16,14 @@ describe 'Adding a link' do
     expect(page).to have_content 'epicodus'
     expect(page).to have_content 'discuss'
   end
+
+  it 'displays errors when the user does not completely fill out the form' do
+    visit '/links/new'
+    within("form") do
+      click_button 'Create Link'
+    end
+    expect(page).to have_content 'errors'
+  end
 end
 
 describe 'Viewing a user' do
