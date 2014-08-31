@@ -1,0 +1,16 @@
+<%= render('/layouts/jumbo') %>
+<%= render('/layouts/errors', :object => @user) %>
+
+<h1>Create a Profile</h1>
+
+<%= form_for @user do |f| %>
+  <div class="form-group">
+    <%= f.label "User Name" %>
+    <%= f.text_field :name, :class => "form-control" %>
+    <%= f.label :password %>
+    <%= f.text_field :password, :class => "form-control" %>
+    <%= f.label "Retype Password" %>
+    <%= f.text_field :password_confirmation, :class => "form-control" %>
+  </div>
+    <%= f.submit "Submit", :class => "btn btn-primary" %>
+<% end %>

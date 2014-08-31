@@ -10,6 +10,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    if @user.save
+      flash[:notice] = "Profile Created"
+      redirect_to :root
+    else
+      render :new
+    end
   end
 
   def show
@@ -33,7 +39,7 @@ class UsersController < ApplicationController
 private
 
   def user_params
-    params.require(:user).permit(:password_digest, :name)
+    params.require(:user).permit(:password, :password_confirmation, :name)
   end
 
 end

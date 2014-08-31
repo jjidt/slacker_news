@@ -1,8 +1,11 @@
 
 <% content_for :jumbo do %>
-  <h1>Slacker News</h1>
-  <%=link_to "Add Link", new_link_path, :class => "text-right" %>
+    <%= flash[:notice] %>
+    <h1>Slacker News</h1>
+    <%= link_to "Add Link", new_link_path %>
 <% end %>
+
+
 
 <% @links.each do |link| %>
   <p>

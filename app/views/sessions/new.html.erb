@@ -1,0 +1,9 @@
+<%= form_tag sessions_path do %>
+  <div class="form-group">
+    <%= label_tag "User Name" %>
+    <%= text_field_tag :name, params[:session], :class => 'form-control' %>
+    <%= label_tag :password %>
+    <%= password_field_tag :password, :class => 'form-control' %>
+    <%= submit_tag "Log In" %>
+  </div>
+<% end %>

@@ -9,11 +9,12 @@
 <body>
 
 <div class="jumbotron topper">
+  <%= link_to "Create New Profile", new_user_path, :class => "right" %>
+  <%= link_to "Login", new_session_path, :class => "right" %>
   <div class="container">
     <%= yield(:jumbo) %>
   </div>
 </div>
-
 
 <div class="container" >
   <%= yield %>
