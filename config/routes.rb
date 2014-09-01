@@ -9,7 +9,9 @@ Rails.application.routes.draw do
 
   resources :links do
     resources :comments, only: [:new]
+    resources :votes, only: [:create]
   end
+
 
 
   root :to => 'application#index'

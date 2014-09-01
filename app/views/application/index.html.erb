@@ -1,6 +1,7 @@
 
 <% content_for :jumbo do %>
     <%= flash[:notice] %>
+    <%= flash[:alert] %>
     <h1>Slacker News</h1>
     <%= link_to "Add Link", new_link_path %>
 <% end %>
@@ -9,9 +10,10 @@
 
 <% @links.each do |link| %>
   <p>
-    <%= link_to "", link, class: "glyphicon glyphicon-arrow-up green", :rel => 'nofollow' %>
+    <%= link_to "", link_votes_path(link), :method => :post, class: "glyphicon glyphicon-arrow-up green", :rel => 'nofollow' %>
     <%= link_to link.name, link.url %>&nbsp&nbsp
-    <%=link_to "x", link_path(link), :method => :delete, :data => { confirm: "Are you sure?" }, class: "glyphicon glyphicon-trash red"%>
+    <%= link.votes.length %>
+    <%=link_to "x", link_path(link), :method => :delete, :data => { confirm: "Are you sure?" }, class: "glyphicon glyphicon-trash red", :rel => 'nofollo'%>
   </p>
   <div class="container">
     <p>
