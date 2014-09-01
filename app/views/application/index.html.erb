@@ -11,7 +11,7 @@
   <p>
     <%= link_to "", link, class: "glyphicon glyphicon-arrow-up green", :rel => 'nofollow' %>
     <%= link_to link.name, link.url %>&nbsp&nbsp
-    <%=link_to "x", link_path(link), :method => :delete, :confirm => "Are you sure ?", class: "glyphicon glyphicon-trash red"%>
+    <%=link_to "x", link_path(link), :method => :delete, :data => { confirm: "Are you sure?" }, class: "glyphicon glyphicon-trash red"%>
   </p>
   <div class="container">
     <p>

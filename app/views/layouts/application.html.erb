@@ -9,8 +9,14 @@
 <body>
 
 <div class="jumbotron topper">
-  <%= link_to "Create New Profile", new_user_path, :class => "right" %>
-  <%= link_to "Login", new_session_path, :class => "right" %>
+  <% if current_user %>
+    <p class="right">Logged in as <%= current_user.name %></p>
+    <p> <%= link_to "Log out", session_path("current"), :method => 'delete', :class => "right" %> </p>
+  <% else %>
+    <%= link_to "Create New Profile", new_user_path, :class => "right" %>
+    <%= link_to "Login", new_session_path, :class => "right" %>
+  <% end %>
+
   <div class="container">
     <%= yield(:jumbo) %>
   </div>

@@ -3,12 +3,12 @@
 <h1>Comment</h1>
 
 
-<%= form_for @comment do |f| %>
-<%= hidden_field_tag "comment[link_id]", @link.id %>
-<%= hidden_field_tag "comment[parent_comment_id]", @parent_comment.id %>
-<%= f.label :name %>
-<%= f.text_field :name %>
-<%= f.label :comment %>
-<%= f.text_area :text %>
-<%= f.submit %>
+<%= form_tag comments_path do %>
+<div class="form-group">
+  <%= hidden_field_tag "comment[link_id]", @link.id %>
+  <%= hidden_field_tag "parent_comment_id", @comment.id %>
+  <%= hidden_field_tag "comment[name]", current_user.name  %>
+  <%= text_area_tag "comment[text]", :class => 'form-control' %>
+</div>
+<%= submit_tag "submit", :class => 'btn btn-primary' %>
 <% end %>

@@ -8,9 +8,9 @@
     <%= f.label "User Name" %>
     <%= f.text_field :name, :class => "form-control" %>
     <%= f.label :password %>
-    <%= f.text_field :password, :class => "form-control" %>
+    <%= f.password_field :password, :class => "form-control" %>
     <%= f.label "Retype Password" %>
-    <%= f.text_field :password_confirmation, :class => "form-control" %>
+    <%= f.password_field :password_confirmation, :class => "form-control" %>
   </div>
     <%= f.submit "Submit", :class => "btn btn-primary" %>
 <% end %>

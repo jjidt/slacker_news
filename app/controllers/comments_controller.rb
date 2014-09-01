@@ -7,9 +7,8 @@ class CommentsController < ApplicationController
     @comment = Comment.new
     if params[:link_id]
       @link = Link.find(params[:link_id])
-      @parent_comment = Comment.new
     elsif params[:comment_id]
-      @parent_comment = Comment.find(params[:comment_id])
+      @comment = Comment.find(params[:comment_id])
       @link = Link.new
     end
   end
@@ -19,8 +18,8 @@ class CommentsController < ApplicationController
       @link = Link.find(params[:comment][:link_id])
       @comment = @link.comments.new(comments_params)
       @link_id = @link.id
-    elsif params[:comment][:parent_comment_id] != ""
-      @parent_comment = Comment.find(params[:comment][:parent_comment_id])
+    elsif params[:parent_comment_id] != ""
+      @parent_comment = Comment.find(params[:parent_comment_id])
       @comment = @parent_comment.comments.new(comments_params)
       @link_id = @parent_comment.link_id
     end
@@ -62,6 +61,6 @@ class CommentsController < ApplicationController
 private
 
   def comments_params
-    params.require(:comment).permit(:name, :text, :link_id, :comment_id)
+    params.require(:comment).permit(:name, :text, :link_id)
   end
 end
