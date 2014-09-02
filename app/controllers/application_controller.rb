@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def index
-    @links = Link.all
+    @links = Link.all.sort {|a,b| b.rank <=> a.rank }
     render('index')
   end
 

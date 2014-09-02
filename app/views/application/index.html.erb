@@ -13,6 +13,7 @@
     <%= link_to "", link_votes_path(link), :method => :post, class: "glyphicon glyphicon-arrow-up green", :rel => 'nofollow' %>
     <%= link_to link.name, link.url %>&nbsp&nbsp
     <%= link.votes.length %>
+    <h4>rank score:</h4><%= link.rank %>
     <%=link_to "x", link_path(link), :method => :delete, :data => { confirm: "Are you sure?" }, class: "glyphicon glyphicon-trash red", :rel => 'nofollo'%>
   </p>
   <div class="container">
